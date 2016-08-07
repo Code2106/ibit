@@ -1,0 +1,10 @@
+{
+  "cache" : {
+    "employees" : [
+      {"id": 1, "name" : "Adam", "role" : "Manager"},
+      {"id": 2, "name" : "Betty", "role" : "Supervisor"},
+      {"id": 3, "name" : "Charles", "role" : "Accountant"},
+      {"id": 4, "name" : "Diane", "role" : "Analyst"}
+    ]
+  }
+}

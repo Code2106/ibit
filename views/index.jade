@@ -1,0 +1,41 @@
+extends layout
+
+block content
+
+  h1= title
+
+  form
+   div.input-group
+    span.input-group-addon Full Name:
+     input(ng-model="name" type="text" placeholder="Enter your name" ng-required="true" ng-click="clearForm()")
+    
+   div.input-group  
+    span.input-group-addon Role:  
+     input(ng-model="role" input= "position" type="text" placeholder="Your position" ng-required="true")
+    
+   div.input-group   
+    span.input-group-addon Department:   
+     input(ng-model="departmentName" input="departmentName" type="text" placeholder="Department")
+    
+   div.input-group  
+    span.input-group-addon Contact:  
+     input(ng-model="phoneNumber" input= "phoneNumber" type= "text" placeholder= "format (xxx-xx-xxxx)")
+   
+   div.table-responsive
+   table.table.table-hover
+     thead
+       td ID
+       td Name
+       td Role
+      
+     tr(ng-repeat='employee in employeeList' ng-click="selectEmployee(employee)")
+       td.success {{employee.id}}
+       td {{employee.name}}
+       td {{employee.role}}
+  
+   div.input-group-addon 
+     button.btn.btn-success(data-ng-click="saveEmployee()") Save 
+     span    
+     button.btn.btn-primary(ng-click="deleteEmployee()") Delete 
+     span    
+     button.btn.btn-default(ng-click="editEmployee()") Edit
