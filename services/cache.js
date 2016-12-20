@@ -5,6 +5,8 @@ var employees = require('config').get('cache.employees');
 
 
 var response = [];
+//get employees from cache
+var keys = cache.keys();
 
 // call our method to initialize our cache database
 initialize();
@@ -13,61 +15,73 @@ initialize();
 function initialize() {
   // instantiate an var that would get data from default.json in cache called employees 
   // inside config directory
- 
-  for(employee in employees) {
-    cache.set(employees[employee]["id"], employees[employee]);
+    
+ for (employee in employees) {
+      
+     // cache.del(employees[employee]["id"], employees[employee]);
+      cache.set(employees[employee]["id"], employees[employee]);
 
   }
+ }
+  
+
+function clearList() {
+  
+ response = [];
 
 }
 
 exports.listEmployees = function (callback) {
   
-  //get employees from cache
+    //get employees from cache
   var keys = cache.keys();
-   //for each element of employees, push it to our array object called response
-  keys.forEach(function (key) {
-    
-  response.push(cache.get(key));
-    
-  });
+  
+    //for each element of employees, push it to our array object called response
+   
 
-  callback(null, response);
-  response = [];//clear the array after use
+      keys.forEach(function (key) {
+    
+        response.push(cache.get(key));
+       
+  });
+   
+      callback(null, response);
+      clearList();
 }
 
 exports.saveEmployee = function (employee, callback) {
 
-     //for each elemenof employees, push it to our array object called response
+     //for each element of employees, push it to our array object called response
   cache.set(employee.id, employee, function (err, success) {
     
     if (!err && success) {
 
-        //get employees from cache
-        response.push(cache.get(employee.id));
+      callback(null,200); 
 
     }  
    });
   
-  
   callback(null,response);
-  response = [];//clear the array after use
+  //clear the array after use
+  clearList();
  };
 
 exports.deleteEmployee = function (key, callback) {
-  
+
   cache.del(key, function (err, count) {
   
     if (err) {
-          
+
       callback(err);
 
     }
-      
+
     callback(null, count);
-    //response.splice(cache.get(key));
   });
 
+  cache.set(num, response[0]);   
+  
+  clearList();
 };
 
 exports.editEmployee = function (employee, callback) {

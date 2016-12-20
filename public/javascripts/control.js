@@ -27,7 +27,6 @@ function AppController($scope, $http) {
 
     }
   
-
  $scope.saveEmployee = function () {
 
       var newEmp = {
@@ -157,4 +156,3 @@ function AppController($scope, $http) {
   }
   
 }//end of 1st controller
-
