@@ -1,10 +1,10 @@
 {
   "cache" : {
     "employees" : [
-      {"id": 0, "name" : "Adam", "role" : "Manager"},
-      {"id": 1, "name" : "Betty", "role" : "Supervisor"},
-      {"id": 2, "name" : "Charles", "role" : "Accountant"},
-      {"id": 3, "name" : "Diane", "role" : "Analyst"}
+      {"id": 0, "name" : "Adam", "role" : "Manager", "department":"Development"},
+      {"id": 1, "name" : "Betty", "role" : "Supervisor", "department":"IT Services"},
+      {"id": 2, "name" : "Charles", "role" : "Accountant", "department":"Human Resources"},
+      {"id": 3, "name" : "Diane", "role" : "Analyst", "department":"IT Services"}
     ]
   }
 }

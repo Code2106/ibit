@@ -30,9 +30,10 @@ function AppController($scope, $http) {
  $scope.saveEmployee = function () {
 
       var newEmp = {
-        id: $scope.employeeList.length + 1,
+        id: $scope.employeeList.length,
         name: $scope.name,
-        role: $scope.role
+        role: $scope.role,
+        department: $scope.department
       }
    
       // Check if our fields was filled by the user
@@ -93,9 +94,10 @@ function AppController($scope, $http) {
     $scope.editEmployee = function () {
     
       var editEmp = {
-        id: $scope.id + 1,// Need to add 1 to view the right numbering on the browser
+        id: $scope.id,// Need to add 1 to view the right numbering on the browser
         name: $scope.name,
-        role: $scope.role
+        role: $scope.role,
+        department: $scope.department
       }
 
       if ($scope.id != null) {
@@ -139,10 +141,11 @@ function AppController($scope, $http) {
     }
 
    // Support Function
-   //Clear form
+   // Clear Form
     function clearForm() {
       $scope.name = null;
       $scope.role = null;
+      $scope.department = null;
     }
   
   // Select Employee from list
@@ -151,6 +154,7 @@ function AppController($scope, $http) {
     $scope.id = $scope.employeeList.indexOf(employee);
     $scope.name = $scope.employeeList[$scope.id].name;
     $scope.role = $scope.employeeList[$scope.id].role;
+    $scope.department = $scope.employeeList[$scope.id].department;
     console.log('scope id ' + $scope.id);
     
   }

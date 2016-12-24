@@ -12,13 +12,15 @@ block content
        td ID
        td Employee Name
        td Role
+       td Department
  
      tr(ng-repeat='employee in employeeList' ng-click="selectEmployee(employee)")
     
        td.row.success {{employee.id}}
        td.row {{employee.name}}
        td.row {{employee.role}}
-  
+       td.row {{employee.department}}
+
    div.input-group
     span.input-group-addon Full Name:
      input(ng-model="name" type="text" placeholder="Enter your name" ng-required="true" ng-click="clearForm()")
@@ -27,7 +29,7 @@ block content
      input(ng-model="role" input= "position" type="text" placeholder="Your position" ng-required="true")
       
     span.input-group-addon Department:   
-     input(ng-model="departmentName" input="departmentName" type="text" placeholder="Department")
+     input(ng-model="department" input="departmentName" type="text" placeholder="Department")
    
    div.input-group-addon 
      button.btn.btn-success(data-ng-click="saveEmployee()") Save
